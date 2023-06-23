@@ -21,7 +21,7 @@ Click the 'Upload .tar.gz' button and select the '[modulename].tar.gz' file that
 
 If successful, you should see a new module appear on the modules page:
 
-![installed-module](./img/successful-upload-module)
+![installed-module](./img/successful-upload-module.png)
 
 
 ---
