@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+    overflow: auto;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  .scroller {
+    overflow:scroll;
+    max-height:700px;
+}
+
+.rcorners {
+    border-radius: 25px;
+    border: 2px solid #005763;
+    padding: 20px;
+    width: 200px;
+    height: 5px;
+  }
+.deauthButtons{
+    width:500px;
+}

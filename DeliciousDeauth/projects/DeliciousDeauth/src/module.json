@@ -1,0 +1,10 @@
+{
+    "name": "DeliciousDeauth",
+    "title": "Delicious Deauth Continuous Wi-Fi Deauthentication",
+    "description": "Continuous Wi-Fi Deauthentication Module",
+    "version": "1.0",
+    "author": "Halcy0nic",
+    "firmware_required": "1.0.0",
+    "devices": ["wifipineapplemk7"]
+}
+

@@ -1,0 +1,113 @@
+<mat-card> 
+    <mat-card-title>Delicious Deauth - Skinny R&D</mat-card-title> 
+    <mat-card-content> 
+        <mat-form-field>
+            <mat-label>Deauthentication Target</mat-label> 
+            <select matNativeControl required (change)="setTarget()" [(ngModel)]="targetInput">
+              <option value="apmode">Access Point</option>
+              <option value="clientmode">Client</option>
+            </select>
+        </mat-form-field> 
+        <br>
+        <mat-form-field> 
+            <mat-label>Access Point MAC</mat-label> 
+            <input matInput [(ngModel)]="userInputBSSID" /> 
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Channel</mat-label> 
+            <input matInput [(ngModel)]="channelInput" /> 
+        </mat-form-field>
+        <br>
+        <mat-form-field> 
+            <mat-label>Client MAC - Client Mode Only</mat-label> 
+            <input matInput [readonly]="inputreadonly" [(ngModel)]="userInputClientMAC" /> 
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Duration</mat-label> 
+            <select matNativeControl required [(ngModel)]="durationInput">
+              <option value="30s">30s</option>
+              <option value="1m">1 min</option>
+              <option value="5m">5 min</option>
+              <option value="cont">Continuous</option>
+            </select>
+        </mat-form-field> 
+
+        <br>
+        <button class="deauthButtons" mat-flat-button color="accent" (click)="runDeauth()"> Execute Deauthentication Attack </button>
+        <br>
+        <br>
+        <button class="deauthButtons" mat-flat-button color="warn" (click)="stopDeauth()"> Stop Deauthentication Attack </button>
+        <h5>Note: Leaving this page will terminate the deauthentication attack</h5>
+
+        <br>
+
+
+
+          <br/>
+        <h3 style="text-align: center;">SSID List</h3>
+        <hr>
+        <mat-form-field>
+            <mat-label>Select A Scan To Load Data From</mat-label> 
+            <select matNativeControl required (change)="getAPs()" [(ngModel)]="scanNum">
+              <option *ngFor="let scanitem of scans" [ngValue]="scanitem">{{scanitem.date}}</option>
+            </select>
+        </mat-form-field>
+        <br/>
+
+        <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex: skinnyrd-wifi" #input>
+          </mat-form-field>
+        <div class="scroller">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- SSID Column -->
+        <ng-container matColumnDef="SSID">
+        <th mat-header-cell *matHeaderCellDef > SSID </th>
+        <td mat-cell *matCellDef="let element"> {{element.ssid}} </td>
+        </ng-container>
+        
+        <!-- BSSID Column -->
+        <ng-container matColumnDef="MAC">
+        <th mat-header-cell *matHeaderCellDef> BSSID </th>
+        <td mat-cell *matCellDef="let element"> {{element.bssid}} </td>
+        </ng-container>
+        
+        <!-- Channel Column -->
+        <ng-container matColumnDef="Channel">
+        <th mat-header-cell *matHeaderCellDef> Channel </th>
+        <td mat-cell *matCellDef="let element"> {{element.channel}} </td>
+        </ng-container>
+
+        <!-- MFP Column -->
+        <ng-container matColumnDef="MFP">
+        <th mat-header-cell *matHeaderCellDef> MFP </th>
+        <td mat-cell *matCellDef="let element"> {{element.mfp}} </td>
+        </ng-container>
+        
+        <!-- Clients Column -->
+        <ng-container matColumnDef="CLIENTS">
+        <th mat-header-cell *matHeaderCellDef> Associated Clients </th>
+        <td mat-cell *matCellDef="let element"> {{element.allClients}} </td>
+        </ng-container>
+                    
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+        </table>
+    </div>
+    <br />
+    <br />
+        <!--<span>SSID List: {{ssidResponse}}</span> -->
+    </mat-card-content> 
+</mat-card>
+
+
+    

@@ -1,0 +1,47 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "DeliciousDeauth": {
+            "projectType": "library",
+            "root": "projects/DeliciousDeauth",
+            "sourceRoot": "projects/DeliciousDeauth/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "options": {
+                        "tsConfig": "projects/DeliciousDeauth/tsconfig.lib.json",
+                        "project": "projects/DeliciousDeauth/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/DeliciousDeauth/tsconfig.lib.prod.json"
+                        }
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/DeliciousDeauth/src/test.ts",
+                        "tsConfig": "projects/DeliciousDeauth/tsconfig.spec.json",
+                        "karmaConfig": "projects/DeliciousDeauth/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "projects/DeliciousDeauth/tsconfig.lib.json",
+                            "projects/DeliciousDeauth/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                }
+            }
+        }},
+    "defaultProject": "DeliciousDeauth"
+}
