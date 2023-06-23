@@ -29,7 +29,7 @@ If successful, you should see a new module appear on the modules page:
 
 ### DeliciousDeauth - Continuous Wi-Fi Deauthentication Module
 
-![DeliciousDeauth module](./img/DeliciousDeauth-main.png)
+![DeliciousDeauth module](./img/deliciousdeauthmain.png)
 
 To use this module, first select a deauthentication target from the top dropdown list.  The options for this dropdown are 'Access Point' mode and 'Client' mode.  Access Point mode will deauthenticate every device associated with the access point.  Client mode will target a client and will only deauthenticate the specified client. 
 
