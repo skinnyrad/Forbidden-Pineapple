@@ -1,5 +1,5 @@
 # Forbidden-Pineapple
-Skinny R&amp;D Modules For The Hack5 Wi-Fi Pineapple
+Skinny R&amp;D Modules For The Hak5 Wi-Fi Pineapple
 
 
 # Install
