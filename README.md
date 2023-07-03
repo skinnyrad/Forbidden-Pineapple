@@ -59,3 +59,7 @@ The following options are required in 'Client' Mode:
 To start and stop an attack, use the blue and red buttons located in the middle of the page:
 
 ![start-stop](./img/start-stop.png)
+
+Once the module has been executed, you will see the status label change to inform you that the module is running.
+
+![active](./img/delicious-deauth-active.png)
