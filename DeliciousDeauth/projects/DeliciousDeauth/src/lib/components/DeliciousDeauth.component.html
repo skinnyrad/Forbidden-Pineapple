@@ -42,6 +42,9 @@
         <h5>Note: Leaving this page will terminate the deauthentication attack</h5>
 
         <br>
+        <div style="font-size: large;" [style.color]="statusColor" innerHTML="{{statustext}}"></div>
+        <br>
+        <mat-progress-bar  color="accent"  [style.visibility]="statuslabel ? 'visible': 'hidden'" aria-label="Status: Inactive" mode="query"></mat-progress-bar>
 
 
 

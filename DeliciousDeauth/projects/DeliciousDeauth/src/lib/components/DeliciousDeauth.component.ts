@@ -55,6 +55,9 @@ export class DeliciousDeauthComponent implements OnInit {
     scanitem = '';
     deauthStatus = false;
     timer = 0;
+    statuslabel = false;
+    statustext = "Status: Inactive";
+    statusColor = "red";
 
     getScans(): void{
         this.API.APIGet('/api/recon/scans', (response) => {
@@ -66,6 +69,18 @@ export class DeliciousDeauthComponent implements OnInit {
             })
         })
 
+    }
+
+    async changeStatus(val:boolean): Promise<void>{
+        if(val === false){
+            this.statustext = "Status: Inactive"
+            this.statuslabel = false;
+            this.statusColor = "red";
+        }else{
+            this.statustext = "Status: Active"
+            this.statuslabel = true;
+            this.statusColor = "green";
+        }
     }
 
      getAPs(): void { 
@@ -108,6 +123,7 @@ export class DeliciousDeauthComponent implements OnInit {
     async stopDeauth(): Promise<void>{
         this.deauthStatus = false;
         this.alertUserStop();
+        this.changeStatus(false);
      }
      startDeauth(): void{
         if(this.deauthStatus == true){
@@ -130,6 +146,7 @@ export class DeliciousDeauthComponent implements OnInit {
         this.deauthStatus = true;
         //this.startDeauth(); 
         this.alertUserStart();
+        this.changeStatus(true);
         if(this.durationInput === "30s"){
             while(this.timer < 5 && this.deauthStatus == true){
                 this.startDeauth();
@@ -158,6 +175,7 @@ export class DeliciousDeauthComponent implements OnInit {
                 await new Promise(f => setTimeout(f,7000))
             }
         }
+        this.changeStatus(false);
      }
 
      setTarget(): void{

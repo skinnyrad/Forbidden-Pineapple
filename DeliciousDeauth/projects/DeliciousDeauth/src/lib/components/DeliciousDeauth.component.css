@@ -26,3 +26,7 @@ table {
 .deauthButtons{
     width:500px;
 }
+.status {
+    font-size: 20px;
+    color:orangered
+  }
